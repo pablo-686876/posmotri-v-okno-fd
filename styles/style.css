@@ -13,9 +13,12 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1,
@@ -37,6 +40,248 @@ ol {
   list-style: none;
 }
 
+.content {
+  align-items: end;
+  display: grid;
+  grid-template-columns: 711px 399px;
+  column-gap: 30px;
+}
+
+.search-form {
+  height: 54px;
+  display: flex;
+  gap: 40px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+
+.search-form__fieldset {
+  flex-grow: 1;
+  font-weight: inherit;
+  font-size: inherit;
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-weight: inherit;
+  font-size: inherit;
+  margin-bottom: 5px;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.button {
+  display: block;
+  height: 34px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-weight: 700;
+  font-size: inherit;
+  text-align: center;
+  color: inherit;
+  cursor: pointer;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  align-self: flex-end;
+}
+
+.more-button {
+  width: 99%;
+  margin: 30px 2px 2px;
+  height: 34px;
+}
+
+.search-form__textfield {
+  border: none;
+  min-width: 225px;
+  padding: 2.5px 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 18px;
+  appearance: none;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  margin-right: 5px;
+  position: relative;
+  z-index: -1;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 1px;
+  left: 1px;
+  background-color: #fff;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  gap: 26px;
+}
+
+.content__list-container {
+  overflow-y: scroll;
+  max-height: 298px;
+  position: relative;
+}
+
+.result__video-container {
+  width: 711px;
+  height: 386px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content__list-item {
+  padding: 0 3px;
+}
+
+.content__video-card {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content__video-card-thumbnail {
+  display: block;
+  width: 194px;
+  height: 103px;
+  margin-right: 3px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.content__video-card-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
+  max-width: 196px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 6px 0;
+}
+
+.content__video-card-description {
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 90%;
+  overflow: hidden;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 92%;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* FOCUS */
+
+.search-form__textfield:focus, /* на textfield отключаю focus, но он все равно остается, не понимаю, что делать */
+.content__list-item:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible),
+.button:focus-visible,
+.content__list-item:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__list-item:focus-visible {
+  outline: 1px solid #fff;
+}
+
+/* HOVER */
+
+.search-form__label:hover > span[class="search-form__label-text"] {
+  text-decoration: underline;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.content__video-card:hover > div > h2,
+.content__video-card:hover > div > p {
+  text-decoration: underline;
+}
+
+/* ACTIVE */
+
+.button:active {
+  background-color: #545050;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+}
+
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -47,5 +292,15 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
